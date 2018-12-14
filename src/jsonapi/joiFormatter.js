@@ -11,7 +11,7 @@ const Joi = require('joi');
 const formatEntity = (attributes, name) =>
   Joi.object()
     .keys({
-      id: Joi.number().required(),
+      id: [Joi.number().required(), Joi.string().required()],
       type: Joi.string(),
       links: Joi.object(),
       attributes: Joi.object(attributes).label(`${name}Attributes`),
